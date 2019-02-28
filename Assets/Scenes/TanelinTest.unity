@@ -226,6 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mat: {fileID: 2100000, guid: 748fc7d751387aa4e8b9aab08fc27e61, type: 2}
+  maxOffset: 2.4
 --- !u!23 &1219604472
 MeshRenderer:
   m_ObjectHideFlags: 0
