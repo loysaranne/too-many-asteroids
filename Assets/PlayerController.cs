@@ -29,6 +29,17 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+    }
+
+    void ShootBullet()
+    {
+        Rigidbody2D bulletClone = Instantiate(bullet, (transform.position + transform.right*0.5f), transform.rotation);
+        //bulletClone.velocity = transform.forward * 100f * Time.deltaTime;
+    }
+
+    //FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
+    void FixedUpdate()
+    {
         // Mouse aiming
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         difference.Normalize();
@@ -53,23 +64,11 @@ public class PlayerController : MonoBehaviour {
             rb2d.AddForce(force);
         }
 
-
+        // Shooting
         if (Input.GetMouseButtonDown(0))
         {
             ShootBullet();
         }
-    }
-
-    void ShootBullet()
-    {
-        Rigidbody2D bulletClone = Instantiate(bullet, (transform.position + transform.right*0.5f), transform.rotation);
-        //bulletClone.velocity = transform.forward * 100f * Time.deltaTime;
-    }
-
-    //FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
-    void FixedUpdate()
-    {
-
 
         // Keep ship in boundaries
         if (transform.position.x > maxX)
